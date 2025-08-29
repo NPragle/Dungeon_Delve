@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float baseMoveSpeed = 5f;
+    public float moveSpeed = 5f;
+    public float walkSpeed = 5f;
+    public float sprintSpeed = 10f;
+
+    public int maxHealth = 10;
+    public int health;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float moveSpeed = baseMoveSpeed;
+
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveX, 0, moveY) * moveSpeed * Time.deltaTime;
@@ -31,11 +37,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = 2*baseMoveSpeed;
+            moveSpeed = sprintSpeed;
         }
         else
         {
-            moveSpeed = baseMoveSpeed;
+            moveSpeed = walkSpeed;
         }
 
     }
