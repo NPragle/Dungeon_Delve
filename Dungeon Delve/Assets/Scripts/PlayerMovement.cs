@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space)){
             Rigidbody rb = GetComponent<Rigidbody>();
-            if (rb != null && Mathf.Abs(rb.velocity.y) < 0.01f){
+            if (rb != null && Mathf.Abs(rb.linearVelocity.y) < 0.01f){
                 rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
             }
         }
